@@ -81,13 +81,13 @@ float *generate_random_array_to_sort()
     printf("\n");
 
     /////////////
-    int n = sizeof(arr) / sizeof(arr[0]);
-    printf("n = %d", n);
-    for (int i = 0; i < n; i++)
+    //int n = sizeof(arr) / sizeof(arr[0]);
+    printf("size = %d", size);
+    for (int i = 0; i < size; i++)
     {
-        printf("toto array[%d] = %f", i, arr[i]);
+        printf("the array[%d] = %.3f", i, arr[i]);
     }
-    exit(0);
+    //exit(0);
     /////////////
 
     return arr;

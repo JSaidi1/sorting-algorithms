@@ -28,11 +28,13 @@ ifeq ($(OS),Windows_NT)
     MKDIRCMD := mkdir $(BUILD_DIR) 2>nul || ver >nul
     RUNCMD   := $(BUILD_DIR)\$(TARGET)$(EXE)
     CLEANCMD := rmdir /S /Q $(BUILD_DIR) 2>nul || echo Nothing to clean
+	TEST_CMD_TO_DELETE := gcc ztest-to-delete\test.c -o ztest-to-delete\test.exe && ztest-to-delete\test.exe
 else
     EXE      :=
     MKDIRCMD := mkdir -p $(BUILD_DIR)
     RUNCMD   := ./$(BUILD_DIR)/$(TARGET)
     CLEANCMD := rm -rf $(BUILD_DIR)
+	TEST_CMD_TO_DELETE := gcc ztest-to-delete/test.c -o ztest-to-delete/test && ./ztest-to-delete/test
 endif
 
 # ---------- Link ----------
@@ -84,3 +86,10 @@ clean:
 	@echo Cleaning build directory...
 	@$(CLEANCMD)
 	@echo Clean done.
+
+# ---------- Test to delete ----------
+test:
+	@echo ========================================
+	@echo            Test to delete ...
+	@echo ========================================
+	@$(TEST_CMD_TO_DELETE)

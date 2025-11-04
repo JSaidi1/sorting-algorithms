@@ -20,11 +20,11 @@ int main()
         else if (strcmp(sorting_method, "Selection Sort") == 0)
         {
             // === "Selection Sort"
-                // get array to sort
+            // get array to sort
             // printf("%f", generate_random_array_to_sort()[0]);
             // printf("%f", generate_random_array_to_sort()[1]);
             // printf("%f", generate_random_array_to_sort()[2]);
-            float* array = generate_random_array_to_sort();
+            float array[] = generate_random_array_to_sort();
             if (!array)
             {
                 printf("Error: invalid input or memory allocation failed.\n");
@@ -32,23 +32,23 @@ int main()
             }
 
             /////////////
-            int n = sizeof(array) / sizeof(array[0]);
-            printf("n = %d", n);
-            for (int i = 0; i < n; i++)
+            int size = sizeof(array) / sizeof(array[0]);
+            printf("size = %d", size);
+            for (int i = 0; i < size; i++)
             {
-                printf("array[%d] = %f", i, array[i]);
+                printf("the array[%d] = %.3f", i, array[i]);
             }
-            
+            exit(0);
             /////////////
-            
-            print_array(array);
-                // apply selection function
+
+            //print_array(array);
+            // apply selection function
             // sort_by_selection(array/*, char *order*/);
             sort_by_selection(array);
 
             //
             print_array(array);
-            
+
             //
 
             break;
